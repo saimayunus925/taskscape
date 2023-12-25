@@ -5,11 +5,13 @@ class Item { // our class for to-do list items
     #priority;
     #dateCreated;
     #text;
+    #id;
     constructor(text, priority) { // constructor where we initialize our object properties/data
         this.#text = text; // the item's text/content
         this.#dateCreated = Date(); // timestamp to track when item was created
         this.#priority = priority; // the item's priority (4 = urgent and important, 3 = urgent, 2 = important, 1 = not important or urgent
         this.#completionStatus = false; // variable to track if item's complete or not (true if item is completed, false otherwise)
+        this.#id = Math.floor(Math.random() * (100000 - 50000) + 50000); // unique 5-digit ID for each item b/w 50K and 100K
     }
     // below: our item methods (mostly getters and setters)
     markComplete() {
@@ -27,6 +29,9 @@ class Item { // our class for to-do list items
     setText(newItemText) {
         this.#text = newItemText; // set item text to 'newItemText' string parameter value
     }
+    getID() {
+        return this.#id; // returns item's ID
+    }
     getPriority() {
         return this.#priority; // returns priority of the item
     }
@@ -40,3 +45,4 @@ class Item { // our class for to-do list items
         return this.#dateCreated; // returns date that the item was created
     }
 }
+
