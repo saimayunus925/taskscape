@@ -15,6 +15,12 @@ class Item { // our class for to-do list items
     markComplete() {
         this.#completionStatus = true; // marking item complete (i.e. its "completion status" is now true since we completed the item and want to mark it as done)
     }
+    markIncomplete() {
+        this.#completionStatus = false; // marking item incomplete (e.g. let's say we accidentally marked an item complete and need to switch back)
+    }
+    getCompletionStatus() {
+        return this.#completionStatus; // returns status of task (true if complete and false if not)
+    }
     getText() {
         return this.#text; // returns text of the item
     }
@@ -29,5 +35,8 @@ class Item { // our class for to-do list items
             console.error("ERROR: priority of a list item cannot be negative");
         else
             this.#priority = priorityNum; // otherwise, if priorityNum is 0 or up, set item priority to priorityNum
+    }
+    getDateCreated() {
+        return this.#dateCreated; // returns date that the item was created
     }
 }
